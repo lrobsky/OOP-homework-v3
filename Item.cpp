@@ -18,14 +18,18 @@ int Item::getPrice() const
 {
 	return price;
 }
-string Item::getManufacturerName() const
+string Item::getManufacturer() const
 {
 	return manufacturerName;
 }
 
-int Item::getID() const
+int Item::getId() const
 {
 	return itemID;
+}
+int Item::getTotalItems()
+{
+	return totalItems;
 }
 
 //Setters
@@ -34,14 +38,19 @@ void Item::setPrice(const int price)
 {
 	this->price = price;
 }
-void Item::setManufacturerName(const string name)
+void Item::setManufacturer(const string name)
 {
 	this->manufacturerName = name;
 }
 
-void Item::setID(const int id)
+void Item::setId(const int id)
 {
 	this->itemID = id;
+}
+
+void Item::setTotalItems(const int number)
+{
+	totalItems = number;
 }
 
 Item::operator string()

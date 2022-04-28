@@ -19,12 +19,14 @@ public:
 
 	//Getters
 	int getPrice() const;
-	string getManufacturerName() const;
-	int getID() const;
+	string getManufacturer() const;
+	int getId() const;
+	static int getTotalItems();
 	//Setters
 	void setPrice(const int price);
-	void setManufacturerName(const string name);
-	void setID(const int id);
+	void setManufacturer(const string name);
+	void setId(const int id);
+	void setTotalItems(const int number);
 	//Convert-to-string
 	virtual operator string()=0; // pure virtual function - Item is an interface
 	

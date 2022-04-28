@@ -54,7 +54,20 @@ void Branch::setLocation(const string location)
 {
 	this->location = location;
 }
+void Branch::setCatalog(Item** catalog)
+{
+	this->catalog = catalog;
+}
+void Branch::setOldestIndex(const int index)
+{
+	this->oldestIndex = index;
+}
+void Branch::setNumOfItems(const int size)
+{
+	this->numOfItems = size;
+}
 
+//memory allocation and deallocation
 void Branch::memoryAllocate()
 {
 	catalog = new Item* [STORE_SIZE];

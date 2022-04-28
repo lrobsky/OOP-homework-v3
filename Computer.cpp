@@ -7,7 +7,7 @@ Computer::Computer(int price, string manufacturerName, string cpuName, bool isLa
 {
 }
 //Getters
-string Computer::getCpuName() const
+string Computer::getCpu() const
 {
 	return this->cpuName;
 }
@@ -18,7 +18,7 @@ bool Computer::getIsLaptop() const
 //Setters
 
 
-void Computer::setCpuName(const string name)
+void Computer::setCpu(const string name)
 {
 	this->cpuName = name;
 }

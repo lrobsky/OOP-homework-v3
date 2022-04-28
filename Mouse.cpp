@@ -1,32 +1,32 @@
 #include "Mouse.h"
 
 //Constructor
-Mouse::Mouse(int price, string name, string color, bool isWireless, int DPI) :
-	PeripheralDevice(price, name, color, isWireless), DPI(DPI)
+Mouse::Mouse(int price, string name, string color, bool isWireless, int dpi) :
+	PeripheralDevice(price, name, color, isWireless), dpi(dpi)
 {}
 
 //Getter
-int Mouse::getDPI() const
+int Mouse::getDpi() const
 {
-	return DPI;
+	return dpi;
 }
 
 //Setter
-void Mouse::setDPI(int size)
+void Mouse::setDpi(int dpi)
 {
-	this->DPI = DPI;
+	this->dpi = dpi;
 }
 //Convert-to-string
 Mouse::operator string()
 {
 	string str;
-	string keyboardType = "Wired";
+	string mouseType = "Wired";
 	if (this->getIsWireless())
 	{
-		keyboardType = "Wireless";
+		mouseType = "Wireless";
 	}
-	str = this->Item::operator string() + ", " + keyboardType + ", " + this->getColor()
-		+ ", " + "Mouse with " + "dpi : " + std::to_string(DPI) ;
+	str = this->Item::operator string() + ", " + mouseType + ", " + this->getColor()
+		+ ", " + "Mouse with " + "dpi : " + std::to_string(dpi) ;
 	return str;
 }
 

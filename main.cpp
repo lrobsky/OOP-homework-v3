@@ -33,6 +33,7 @@ int main()
 		haifaBranch.addItem(items[i]);
 	}
 	print_branch_catalog(haifaBranch);
+
 	Keyboard* keyboardPtr = new Keyboard(20, "Sasio", "Gold", true, 24);
 	Mouse* mousePtr = new Mouse(10, "Goldline", "White", false, 1000);
 	Computer* computerPtr = new Computer(120, "Maple", "AMD", true);

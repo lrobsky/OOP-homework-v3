@@ -3,16 +3,16 @@
 #include "PeripheralDevice.h"
 class Mouse : public PeripheralDevice
 {
-	int DPI;
+	int dpi;
 
 public:
 	//Constructor
 	Mouse(int price, string name, string color, bool isWireless, int dpi);
 	//Getter
-	int getDPI() const;
+	int getDpi() const;
 
 	//Setter
-	void setDPI(int size);
+	void setDpi(int size);
 	//Convert-to-string
 	virtual operator string();
 

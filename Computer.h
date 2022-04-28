@@ -14,10 +14,10 @@ public:
 	// no need for destructor?
 
 	// Getters
-	string getCpuName() const;
+	string getCpu() const;
 	bool getIsLaptop() const;
 	//Setters
-	void setCpuName(const string name);
+	void setCpu(const string name);
 	void getIsLaptop(const bool isLaptop);
 	//Convert-to-string
 	virtual operator string();

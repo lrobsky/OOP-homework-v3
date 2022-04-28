@@ -14,7 +14,7 @@ int Keyboard::getNumOfKeys() const
 //Setter
 void Keyboard::setNumOfKeys(int size)
 {
-	this->numOfKeys = numOfKeys;
+	this->numOfKeys = size;
 }
 //Convert-to-string
 Keyboard::operator string() 

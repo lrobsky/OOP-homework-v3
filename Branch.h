@@ -1,7 +1,7 @@
 #ifndef BRANCH_H
 #define BRANCH_H
 #include "Item.h"
-#define STORE_SIZE 4
+#define STORE_SIZE 10
 class Branch
 {
 	
@@ -28,8 +28,11 @@ public:
 	string getLocation() const;
 	int getOldestIndex() const;
 	int getNumOfItems() const;
-	//Setters - what about setCatalog/setOldestIndex?
+	//Setters 
+	void setCatalog(Item** catalog);
 	void setLocation(const string location);
+	void setOldestIndex(const int index);
+	void setNumOfItems(const int size);
 
 	//memory allocation and deallocation
 	void memoryAllocate();
