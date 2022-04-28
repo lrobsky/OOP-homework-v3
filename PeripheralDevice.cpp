@@ -1,10 +1,15 @@
 #include "PeripheralDevice.h"
 #include "Item.h"
 
+//Constructor
 PeripheralDevice::PeripheralDevice(int price, string name, string color, bool isWireless) :
 	Item(price, name), color(color), isWireless(isWireless)
 {
+}
 
+//Destructor
+PeripheralDevice::~PeripheralDevice()
+{
 }
 
 //Getters

@@ -26,6 +26,12 @@ Mouse::operator string()
 		keyboardType = "Wireless";
 	}
 	str = this->Item::operator string() + ", " + keyboardType + ", " + this->getColor()
-		+ ", " + "Keyboard with " + std::to_string(DPI) + " keys";
+		+ ", " + "Mouse with " + "dpi : " + std::to_string(DPI) ;
 	return str;
 }
+
+void Mouse::connect(Computer& comp)
+{
+	std::cout << "Connecting a mouse" << std::endl;
+	this->PeripheralDevice::connect(comp);
+ }

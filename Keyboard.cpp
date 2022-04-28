@@ -29,3 +29,9 @@ Keyboard::operator string()
 		+ ", " + "Keyboard with " + std::to_string(numOfKeys) + " keys";
 	return str;
 }
+
+void Keyboard::connect(Computer& comp)
+{
+	std::cout << "Connecting a keyboard" << std::endl;
+	this->PeripheralDevice::connect(comp);
+}

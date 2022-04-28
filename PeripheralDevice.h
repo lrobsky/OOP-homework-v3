@@ -11,6 +11,8 @@ public:
 	//Constructor
 	PeripheralDevice(int price, string name, string color, bool isWireless);
 
+	//Destructor
+	virtual ~PeripheralDevice();
 	//Getters
 	string getColor();
 	bool getIsWireless();
