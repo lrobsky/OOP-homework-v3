@@ -15,13 +15,9 @@ public:
 	//Constructor
 	
 	Branch(string location);
-	//Copy constructor
 	
-	Branch(const Branch& otherBranch);
 	//Destructor
 	~Branch();
-	//Assigment operator
-	Branch& operator=(const Branch& otherBranch);
 
 	//Getters
 	Item** getCatalog(int& size) const;
@@ -29,7 +25,6 @@ public:
 	int getOldestIndex() const;
 	int getNumOfItems() const;
 	//Setters 
-	void setCatalog(Item** catalog);
 	void setLocation(const string location);
 	void setOldestIndex(const int index);
 	void setNumOfItems(const int size);

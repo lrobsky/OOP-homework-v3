@@ -25,7 +25,6 @@ public:
 	//Setters
 	void setPrice(const int price);
 	void setManufacturer(const string name);
-	void setId(const int id);
 	void setTotalItems(const int number);
 	//Convert-to-string
 	virtual operator string()=0; // pure virtual function - Item is an interface

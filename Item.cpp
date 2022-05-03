@@ -43,11 +43,6 @@ void Item::setManufacturer(const string name)
 	this->manufacturerName = name;
 }
 
-void Item::setId(const int id)
-{
-	this->itemID = id;
-}
-
 void Item::setTotalItems(const int number)
 {
 	totalItems = number;

@@ -8,27 +8,6 @@ Branch::~Branch()
 {
 	freeMemory();
 }
-Branch::Branch(const Branch& otherBranch) : catalog(NULL)
-{
-	memoryAllocate();
-	*this = otherBranch; // using overloaded assigment operator
-}
-Branch& Branch::operator=(const Branch& otherBranch) // assigment operator
-{
-	if (this != &otherBranch)
-	{
-		for (int i = 0; i < this->numOfItems; i++)
-		{
-			this->catalog[i] = NULL;
-		}
-		initArray(otherBranch.catalog,otherBranch.numOfItems);
-		this->numOfItems = otherBranch.numOfItems;
-		this->location = otherBranch.location;
-		this->oldestIndex = otherBranch.oldestIndex;
-
-	}
-	return *this;
-}
 
 //Getters
 Item** Branch::getCatalog(int& size) const
@@ -54,10 +33,7 @@ void Branch::setLocation(const string location)
 {
 	this->location = location;
 }
-void Branch::setCatalog(Item** catalog)
-{
-	this->catalog = catalog;
-}
+
 void Branch::setOldestIndex(const int index)
 {
 	this->oldestIndex = index;
