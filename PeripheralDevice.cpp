@@ -3,7 +3,7 @@
 
 //Constructor
 PeripheralDevice::PeripheralDevice(int price, string name, string color, bool isWireless) :
-	Item(price, name), color(color), isWireless(isWireless)
+	Item(price, name), color(color), isWireless(isWireless) //Call item constructor
 {
 }
 
@@ -13,11 +13,11 @@ PeripheralDevice::~PeripheralDevice()
 }
 
 //Getters
-string PeripheralDevice::getColor()
+string PeripheralDevice::getColor() const
 {
 	return this->color;
 }
-bool PeripheralDevice::getIsWireless()
+bool PeripheralDevice::getIsWireless() const
 {
 	return this->isWireless;
 }
@@ -31,16 +31,15 @@ void PeripheralDevice::setIsWireless(const bool isWireless)
 {
 	this->isWireless = isWireless;
 }
-//Convert-to-string - CODE WORKS WITHOUT THIS FUNCTION even though string(*this) has error
-PeripheralDevice::operator string()
-{
-	string str=this->Item::operator string();
-	return str;
-}
+////Convert-to-string 
+//PeripheralDevice::operator string()
+//{
+//	string str=this->Item::operator string();
+//	return str;
+//}
 
 //Connect function - prints a message to user stating a device was connected to the computer
 void PeripheralDevice::connect(Computer& comp)
 {
-	
 	std::cout << string(*this) <<" "<< "is Connecting to computer: " << string(comp) << std::endl;
 }

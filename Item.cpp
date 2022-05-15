@@ -23,7 +23,7 @@ string Item::getManufacturer() const
 	return manufacturerName;
 }
 
-int Item::getId() const
+const int Item::getId() const
 {
 	return itemID;
 }

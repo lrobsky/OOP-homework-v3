@@ -3,7 +3,8 @@
 //Constructor
 Keyboard::Keyboard(int price, string name, string color, bool isWireless, int numOfKeys):
 PeripheralDevice(price,name,color,isWireless),numOfKeys(numOfKeys)
-{}
+{
+}
 
 //Getter
 int Keyboard::getNumOfKeys() const

@@ -11,7 +11,6 @@ class Computer : public Item
 public:
 	//Constructor
 	Computer(int price, string manufacturerName, string cpuName, bool isLaptop);
-	// no need for destructor?
 
 	// Getters
 	string getCpu() const;

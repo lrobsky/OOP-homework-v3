@@ -7,7 +7,7 @@ class Item
 {
 	int price;
 	string manufacturerName;
-	int itemID;
+	const int itemID;
 	static int totalItems;
 
 public:
@@ -20,7 +20,7 @@ public:
 	//Getters
 	int getPrice() const;
 	string getManufacturer() const;
-	int getId() const;
+	const int getId() const;
 	static int getTotalItems();
 	//Setters
 	void setPrice(const int price);

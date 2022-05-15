@@ -30,17 +30,11 @@ void Computer::getIsLaptop(const bool isLaptop)
 Computer::operator string()
 {
 	string str;
-	//string str1;
 	string computerType = "Desktop";
 	if (isLaptop)
 	{
 		computerType = "Laptop";
 	}
 	str = this->Item::operator string() + ", " + computerType + ", " + cpuName;
-	
-	//std::cout << this->Item::operator string() << std::endl;
-	/*str1 = "id " + std::to_string(this->getID()) + ": " + this->getManufacturerName() + " " + std::to_string(this->getPrice()) + "$, "
-		+ computerType + ", " + cpuName;
-	std::cout << str1 << std::endl;*/
 	return str;
 }
