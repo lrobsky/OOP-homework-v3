@@ -31,12 +31,6 @@ void PeripheralDevice::setIsWireless(const bool isWireless)
 {
 	this->isWireless = isWireless;
 }
-////Convert-to-string 
-//PeripheralDevice::operator string()
-//{
-//	string str=this->Item::operator string();
-//	return str;
-//}
 
 //Connect function - prints a message to user stating a device was connected to the computer
 void PeripheralDevice::connect(Computer& comp)

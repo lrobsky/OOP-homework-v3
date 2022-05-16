@@ -21,10 +21,6 @@ public:
 	void setColor(const string color);
 	void setIsWireless(const bool isWireless);
 
-	////Convert-to-string
-	//virtual operator string()=0;
-	// 
-	// 
 	//Connect function - prints a message to user stating a device was connected to the computer
 	virtual void connect(Computer& comp);
 
