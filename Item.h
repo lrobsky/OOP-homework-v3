@@ -2,6 +2,7 @@
 #define ITEM_H
 #include <iostream>
 #include <string> 
+#include "HWExceptions.h"
 using std::string;
 class Item
 {

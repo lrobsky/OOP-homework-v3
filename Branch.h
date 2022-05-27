@@ -1,40 +1,45 @@
 #ifndef BRANCH_H
 #define BRANCH_H
 #include "Item.h"
-#define STORE_SIZE 10
+#include <vector>
+#include <algorithm>
+//Temporary place - where should i put this?
+
+
 class Branch
 {
-	
-	Item** catalog;
+
+	std::vector<Item*> catalog;
+	const int capacity;
 	string location;
-	int oldestIndex;
-	int numOfItems;
 
 public:
 
-	//Constructor
+	//Constructors
 	
-	Branch(const string& location);
+	Branch(const string& location,int capacity);
+	Branch(Branch& other);
 	
 	//Destructor
 	~Branch();
 
 	//Getters
-	Item** getCatalog(int& size) const;
+	const std::vector<Item*>& getCatalog() const;
 	const string& getLocation() const;
-	int getOldestIndex() const;
-	int getNumOfItems() const;
+	const int getCapacity() const;
 	//Setters 
 	void setLocation(const string& location);
-	void setOldestIndex(const int index);
-	void setNumOfItems(const int size);
 
-	//memory allocation and deallocation
-	void memoryAllocate();
-	void freeMemory();
 
 	//Add new item to array, if array is full we remove the oldest item in the store.
 	void addItem(Item* product);
+	//remove item with given id, if item is not in branch's catalog we throw an exception.
+	Item* deleteItem(int id);
+
+	int branchValue() const;
+	void print_catalog_by_id();
+	void print_catalog_by_price();
+	Item* retrieveFinest(Item* ptr) const;
 	
 };
 

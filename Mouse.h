@@ -16,7 +16,7 @@ public:
 	//Convert-to-string
 	virtual operator string();
 
-	virtual void connect(Computer& comp);
+	virtual void connect(Computer* comp);
 
 };
 

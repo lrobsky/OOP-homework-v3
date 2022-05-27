@@ -30,7 +30,7 @@ Mouse::operator string()
 	return str;
 }
 
-void Mouse::connect(Computer& comp)
+void Mouse::connect(Computer* comp)
 {
 	std::cout << "Connecting a mouse" << std::endl;
 	this->PeripheralDevice::connect(comp);
