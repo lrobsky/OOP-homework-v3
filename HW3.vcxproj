@@ -26,11 +26,13 @@
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Branch.cpp" />
+    <ClCompile Include="MainOffice.cpp" />
     <ClCompile Include="Webcam.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Computer.h" />
     <ClInclude Include="Branch.h" />
+    <ClInclude Include="MainOffice.h" />
     <ClInclude Include="Webcam.h" />
     <ClInclude Include="HWExceptions.h" />
     <ClInclude Include="Mouse.h" />
