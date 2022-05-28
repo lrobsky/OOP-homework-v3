@@ -1,18 +1,20 @@
 #include "Branch.h"
 #include <map>
 #include "HWExceptions.h"
-#include "Branch.h"
+
 
 class MainOffice
 {
-	static std::map<string, Branch*> branches;
+	 std::map<string, Branch*> branches;
+	MainOffice();
+	~MainOffice();
 
 public:
-	MainOffice();
-	static std::map<string, Branch*> getBranches() ;
+	
+	std::map<string, Branch*> getBranches(); const
 	void addBranch(string location, int capacity);
 	void deleteBranch(string location);
-	void printByLocation();
+	void printByLocation(); const
 	static MainOffice& getInstance(); //get singleton
 
 };

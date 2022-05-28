@@ -1,6 +1,14 @@
 #include "MainOffice.h"
+
 MainOffice::MainOffice()
 {
+}
+MainOffice::~MainOffice()
+{
+	for (auto& Branch : branches)
+	{
+		delete Branch.second;
+	}
 }
 std::map<string, Branch*> MainOffice::getBranches() 
 {
@@ -42,9 +50,8 @@ void MainOffice::printByLocation()
 	}
 }
 
-static MainOffice& getInstance()
+ MainOffice& MainOffice::getInstance()
 {
 	static MainOffice* instance = new MainOffice;
 	return *instance;
 }
-	

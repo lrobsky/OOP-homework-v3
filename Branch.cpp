@@ -149,5 +149,5 @@ Item* Branch::retrieveFinest(Item* ptr) const
 	{
 		throw NoneExistingItemTypeError();
 	}
-	return *(std::max_element(temp.begin(), temp.end(), priceSort));
+	return *(std::max_element(temp.begin(), temp.end(), priceSort)); // pricesort- struct?
 }
