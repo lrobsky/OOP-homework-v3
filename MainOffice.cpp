@@ -1,20 +1,27 @@
 #include "MainOffice.h"
 
-MainOffice::MainOffice()
+MainOffice::MainOffice() // Constructor
 {
 }
-MainOffice::~MainOffice()
+MainOffice::~MainOffice() //Destructor - also frees memory of allocated branches
 {
 	for (auto& Branch : branches)
 	{
 		delete Branch.second;
 	}
 }
-std::map<string, Branch*> MainOffice::getBranches() 
+
+MainOffice& MainOffice::operator=(MainOffice& other)// assigment operator -?
+{
+	return getInstance();
+}
+//Getter
+std::map<string, Branch*> MainOffice::getBranches() const
 {
 	return branches;
 }
-
+//Creates new branch with inputed location&capacy.
+//if MainOffice already has a branch with the same location, throw error.
 void MainOffice::addBranch(string location, int capacity)
 {
 	std::map<string, Branch*>::iterator it;
@@ -29,6 +36,8 @@ void MainOffice::addBranch(string location, int capacity)
 		throw ExistingBranchError();
 	}
 }
+//Remove branch with inputed location from map/MainOffice
+//If branch with inserted location does not exist, throw error.
 void MainOffice::deleteBranch(string location)
 {
 	std::map<string, Branch*>::iterator it;
@@ -42,7 +51,9 @@ void MainOffice::deleteBranch(string location)
 		branches.erase(location);
 	}
 }
-void MainOffice::printByLocation()
+//iterate through map container, and print every item in each branch by its id.
+//Because our key is the location,the map is already sorted.
+void MainOffice::printByLocation() const
 {
 	for (auto& Branch : branches)
 	{
@@ -50,6 +61,8 @@ void MainOffice::printByLocation()
 	}
 }
 
+//Return singelton instance of MainOffice.
+//If singelton of MainOffice hasnt been initialized yet we create one.
  MainOffice& MainOffice::getInstance()
 {
 	static MainOffice* instance = new MainOffice;

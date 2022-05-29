@@ -26,7 +26,7 @@ public:
 	//Getters
 	const std::vector<Item*>& getCatalog() const;
 	const string& getLocation() const;
-	const int getCapacity() const;
+	int getCapacity() const;
 	//Setters 
 	void setLocation(const string& location);
 

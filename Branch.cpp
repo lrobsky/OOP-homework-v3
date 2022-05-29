@@ -39,7 +39,7 @@ Branch::~Branch()
 }
 
 //Getters
-const int Branch::getCapacity() const
+int Branch::getCapacity() const
 {
 	return capacity;
 }
