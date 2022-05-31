@@ -26,7 +26,7 @@ Webcam::operator string()
 		webcamType = "Wireless";
 	}
 	str = this->Item::operator string() + ", " + webcamType + ", " + this->getColor()
-		+ ", " + "Webcam with " + "resolution " + resolution;
+		+ ", " + "Webcam with "  + resolution + " resolution";
 	return str;
 }
 

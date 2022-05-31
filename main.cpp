@@ -5,7 +5,6 @@
 #include "Keyboard.h"
 #include "Webcam.h"
 
-
 #define TEST_MAIN_SIZE 4 // not related to STORE_SIZE , only here for the main test
 
 
@@ -95,11 +94,11 @@ int main()
 		haifaBranch.deleteItem(items[0]->getId());
 		telAvivBranch.addItem(items[0]);
 		Computer* ptr = new Computer(0,"","",false,0);
-		/*Computer* finest = telAvivBranch.retrieveFinest(ptr);
-		std::cout <<"finest computer: "<<string(*finest) << std::endl;*/
+		Computer* finest = telAvivBranch.retrieveFinest(ptr);
+		std::cout <<"finest computer: "<<string(*finest) << std::endl;
 		delete ptr;
-		//Webcam* finestWc = telAvivBranch.retrieveFinest(webcamPtr);
-	//	std::cout << string(*finestWc) << std::endl;
+		Webcam* finestWc = telAvivBranch.retrieveFinest(webcamPtr);
+		std::cout << string(*finestWc) << std::endl;
 	}
 	catch (std::exception& e)
 	{

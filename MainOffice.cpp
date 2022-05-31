@@ -1,20 +1,18 @@
 #include "MainOffice.h"
-
-MainOffice::MainOffice() // Constructor
+MainOffice::MainOffice()
 {
+
 }
+
 MainOffice::~MainOffice() //Destructor - also frees memory of allocated branches
 {
+	std::cout << "MainOffice destructor" << std::endl;
 	for (auto& Branch : branches)
 	{
 		delete Branch.second;
 	}
 }
 
-MainOffice& MainOffice::operator=(MainOffice& other)// assigment operator -?
-{
-	return getInstance();
-}
 //Getter
 std::map<string, Branch*> MainOffice::getBranches() const
 {
@@ -63,7 +61,7 @@ void MainOffice::printByLocation() const
 
 //Return singelton instance of MainOffice.
 //If singelton of MainOffice hasnt been initialized yet we create one.
- MainOffice& MainOffice::getInstance()
+  MainOffice& MainOffice::getInstance()
 {
 	static MainOffice* instance = new MainOffice;
 	return *instance;

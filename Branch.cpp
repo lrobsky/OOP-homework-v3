@@ -1,14 +1,5 @@
 #include "Branch.h"
-struct idMatch
-{
-	idMatch(int id) : id(id) {}
-	bool operator()(Item* item) const
-	{
-		return (item->getId() == id);
-	}
-private:
-	const int id;
-};
+
 bool idSort(Item* first, Item* second)
 {
 	return first->getId() < second->getId();
@@ -17,6 +8,7 @@ bool priceSort(Item* first, Item* second)
 {
 	return first->getPrice() < second->getPrice();
 }
+
 
 //Constructors
 Branch::Branch(const string& location="~", int capacity = 0) : location(location), capacity(capacity)
@@ -133,21 +125,4 @@ void Branch::print_catalog_by_price()
 	{
 		std::cout << string(*(*it)) << std::endl;
 	}
-}
-Item* Branch::retrieveFinest(Item* ptr) const
-{
-	std::vector<Item*> temp;
-	std::vector<Item*>::const_iterator it ;
-	for (it = catalog.begin(); it != catalog.end(); ++it)
-	{
-		if (typeid(*ptr) == typeid(*it))
-		{
-			temp.emplace_back(*it);
-		}
-	}
-	if (temp.size() == 0)
-	{
-		throw NoneExistingItemTypeError();
-	}
-	return *(std::max_element(temp.begin(), temp.end(), priceSort)); // pricesort- struct?
 }

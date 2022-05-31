@@ -5,6 +5,17 @@
 #include <algorithm>
 //Temporary place - where should i put this?
 
+struct idMatch
+{
+	idMatch(int id) : id(id) {}
+	bool operator()(Item* item) const
+	{
+		return (item->getId() == id);
+	}
+private:
+	const int id;
+};
+
 
 class Branch
 {
@@ -16,10 +27,10 @@ class Branch
 public:
 
 	//Constructors
-	
-	Branch(const string& location,int capacity);
+
+	Branch(const string& location, int capacity);
 	Branch(Branch& other);
-	
+
 	//Destructor
 	~Branch();
 
@@ -39,8 +50,36 @@ public:
 	int branchValue() const;
 	void print_catalog_by_id();
 	void print_catalog_by_price();
-	Item* retrieveFinest(Item* ptr) const;
-	
+
+	template<class T>
+	T* retrieveFinest(T* ptr) const
+	{
+		T* max = NULL;
+		Item* temp;
+		std::vector<Item*>::const_iterator it;
+		for (it = catalog.begin(); it != catalog.end(); ++it)
+		{
+			if (typeid(*ptr) == typeid(*(*it))) // double dereferencing
+			{
+				if (max == NULL)
+				{
+					temp = *it;
+					max = dynamic_cast<T*>(temp);
+				}
+				else if (max->getPrice() < (*it)->getPrice())
+				{
+					temp = *it;
+					max = dynamic_cast<T*>(temp);
+				}
+			}
+		}
+		if (max == NULL)
+		{
+			throw NoneExistingItemTypeError();
+		}
+		return max;
+	}
 };
 
 #endif 
+

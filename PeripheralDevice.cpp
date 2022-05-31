@@ -41,18 +41,17 @@ void PeripheralDevice::connect(Computer* comp)
 	{
 		if (compConnectedTo = comp)
 		{
-			return; // trying to connec to computer already connected to
+			return; // trying to connect to computer already connected to
 		}
 		else
 		{
 			throw ConnectError(); // already connected to different computer
 		}
 	}
-
+	std::cout << string(*this) << " " << "is Connecting to computer: " << string(*comp) << std::endl;
 	if (comp->connectPeripheral(this) == true)
 	{
 		compConnectedTo = comp; // update compConnectedTo
-		std::cout << string(*this) << " " << "is Connecting to computer: " << string(*comp) << std::endl;
 	}
 	else //capacity overflow or same type error
 	{

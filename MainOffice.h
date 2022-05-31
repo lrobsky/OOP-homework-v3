@@ -1,3 +1,6 @@
+#ifndef MAINOFFICE_H
+#define MAINOFFICE_H
+
 #include "Branch.h"
 #include <map>
 #include "HWExceptions.h"
@@ -7,8 +10,11 @@ class MainOffice
 {
 	 std::map<string, Branch*> branches;
 	MainOffice();
+	MainOffice(MainOffice& other);
+	MainOffice(const MainOffice& other);
 	~MainOffice();
-	MainOffice& operator=(MainOffice& other); // ?
+	MainOffice& operator=(MainOffice& other); 
+	MainOffice& operator=(const MainOffice& other);
 
 public:
 	
@@ -19,3 +25,5 @@ public:
 	static MainOffice& getInstance(); //get singleton
 
 };
+
+#endif 
