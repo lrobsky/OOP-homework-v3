@@ -90,7 +90,7 @@ Item* Branch::deleteItem(int id)
 		return temp; // return pointer to removed item
 	}
 }
-
+// Return the total cost of all the items in the branch
 int Branch::branchValue() const
 {
 	int sum = 0;
@@ -101,23 +101,10 @@ int Branch::branchValue() const
 	}
 	return sum;
 }
-void Branch::print_catalog_by_id() 
+
+void Branch::print() const
 {
-	std::vector<Item*>::iterator it;
-	std::stable_sort(catalog.begin(), catalog.end(), idSort);
-	std::cout << "Printing KSF branch in " << location << std::endl;
-	std::cout << "There are " << catalog.size() <<" item in the catalog" << std::endl;
-	std::cout << "Catalog value is: " << this->branchValue() <<  std::endl;
-	for (it = catalog.begin(); it != catalog.end(); ++it)
-	{
-		std::cout << string(*(*it)) << std::endl;
-	}
-}
-void Branch::print_catalog_by_price()  
-// Code duplication - can export to new function-add enum type
-{
-	std::vector<Item*>::iterator it;
-	std::stable_sort(catalog.begin(), catalog.end(), priceSort);
+	std::vector<Item*>::const_iterator it;
 	std::cout << "Printing KSF branch in " << location << std::endl;
 	std::cout << "There are " << catalog.size() << " item in the catalog" << std::endl;
 	std::cout << "Catalog value is: " << this->branchValue() << std::endl;
@@ -125,4 +112,33 @@ void Branch::print_catalog_by_price()
 	{
 		std::cout << string(*(*it)) << std::endl;
 	}
+}
+// Print all the items in the branch, sorted by their id.
+void Branch::print_catalog_by_id() 
+{
+	//std::vector<Item*>::iterator it;
+	std::stable_sort(catalog.begin(), catalog.end(), idSort);
+	this->print();
+	/*std::cout << "Printing KSF branch in " << location << std::endl;
+	std::cout << "There are " << catalog.size() <<" item in the catalog" << std::endl;
+	std::cout << "Catalog value is: " << this->branchValue() <<  std::endl;
+	for (it = catalog.begin(); it != catalog.end(); ++it)
+	{
+		std::cout << string(*(*it)) << std::endl;
+	}*/
+}
+
+void Branch::print_catalog_by_price()  
+// Code duplication - can export to new function-add enum type
+{
+	/*std::vector<Item*>::iterator it;*/
+	std::stable_sort(catalog.begin(), catalog.end(), priceSort);
+	this->print();
+	/*std::cout << "Printing KSF branch in " << location << std::endl;
+	std::cout << "There are " << catalog.size() << " item in the catalog" << std::endl;
+	std::cout << "Catalog value is: " << this->branchValue() << std::endl;
+	for (it = catalog.begin(); it != catalog.end(); ++it)
+	{
+		std::cout << string(*(*it)) << std::endl;
+	}*/
 }

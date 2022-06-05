@@ -3,8 +3,6 @@
 #include "Item.h"
 #include <vector>
 #include <algorithm>
-//Temporary place - where should i put this?
-
 struct idMatch
 {
 	idMatch(int id) : id(id) {}
@@ -42,15 +40,18 @@ public:
 
 	//Add new item to array, if array is full we remove the oldest item in the store.
 	void addItem(Item* product);
-	//remove item with given id, if item is not in branch's catalog we throw an exception.
+	//Remove item with given id, if item is not in branch's catalog we throw an exception.
 	Item* deleteItem(int id);
 	//
-	int branchValue() const; // return the total cost of all the items in the branch
-	void print_catalog_by_id(); // print all the items in the branch, sorted by their id.
-	void print_catalog_by_price();// print all the items in the branch, sorted by their price.
+	int branchValue() const; // Return the total cost of all the items in the branch
+	void print() const; // print all items in the catalog by order
+	void print_catalog_by_id();	 // Sort catalog by their id, the call print function	
+	void print_catalog_by_price();// Sort catalog by their id, the call print function	
 
-	//return a pointer from 
-
+	//We iterate through the Item* vector and search for the highest cost item from the same
+	//subclass as the input.
+	//If none of the items in the vector are from the same subclass as the given input,we throw
+	// an error.
 	template<class T>
 	T* retrieveFinest(T* ptr) const
 	{
@@ -64,18 +65,18 @@ public:
 				if (max == NULL)
 				{
 					temp = *it;
-					max = dynamic_cast<T*>(temp);
+					max = dynamic_cast<T*>(temp); // cast max to appropiate pointer type
 				}
-				else if (max->getPrice() < (*it)->getPrice())
+				else if (max->getPrice() < (*it)->getPrice()) // max is not null, we can call getPrice()
 				{
 					temp = *it;
-					max = dynamic_cast<T*>(temp);
+					max = dynamic_cast<T*>(temp); // cast max to appropiate pointer type
 				}
 			}
 		}
-		if (max == NULL)
+		if (max == NULL) // vector has no items from the same subclass as the input
 		{
-			throw NoneExistingItemTypeError();
+			throw NoneExistingItemTypeError(); 
 		}
 		return max;
 	}
