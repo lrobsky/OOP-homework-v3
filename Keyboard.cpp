@@ -18,7 +18,7 @@ void Keyboard::setNumOfKeys(int size)
 	this->numOfKeys = size;
 }
 //Convert-to-string
-Keyboard::operator string() 
+Keyboard::operator string() const
 {
 	string str;
 	string keyboardType = "Wired";

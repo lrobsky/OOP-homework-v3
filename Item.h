@@ -24,13 +24,13 @@ public:
 	int getPrice() const;
 	string getManufacturer() const;
 	const int getId() const;
-	static int getTotalItems();
+	static int getTotalItems() ;
 	//Setters
 	void setPrice(const int price);
 	void setManufacturer(const string name);
 	void setTotalItems(const int number);
 	//Convert-to-string
-	virtual operator string()=0; // pure virtual function - Item is an interface
+	virtual operator string() const =0 ; // pure virtual function - Item is an interface
 	
 
 };

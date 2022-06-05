@@ -39,7 +39,7 @@ Trying to delete an item with a non existing id
 
 finest computer: id 7: Maple 120$, Laptop, AMD
 Throwing away an item
-Trying to get an item with a non existing type
+Trying to get an item with a non existing type:
 
 Throwing away an item
 There are 1 connection to id 7: Maple 120$, Laptop, AMD

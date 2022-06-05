@@ -17,7 +17,7 @@ void Mouse::setDpi(int dpi)
 	this->dpi = dpi;
 }
 //Convert-to-string
-Mouse::operator string()
+Mouse::operator string() const
 {
 	string str;
 	string mouseType = "Wired";

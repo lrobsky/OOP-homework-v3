@@ -32,7 +32,7 @@ void Computer::getIsLaptop(const bool isLaptop)
 	this->isLaptop = isLaptop;
 }
 //Convert-to-string
-Computer::operator string()
+Computer::operator string() const
 {
 	string str;
 	string computerType = "Desktop";

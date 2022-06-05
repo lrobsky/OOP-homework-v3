@@ -1,4 +1,4 @@
-Trying to add a item with an id already in the catalog
+Trying to add an item with an id already in the catalog
 Printing KSF branch in Haifa
 There are 4 item in the catalog
 Catalog value is: 185
@@ -51,3 +51,4 @@ Throwing away an item
 Throwing away an item
 Throwing away an item
 Throwing away an item
+

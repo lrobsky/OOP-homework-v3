@@ -17,7 +17,7 @@ void Webcam::setResolution(const string& resolution)
 	this->resolution = resolution;
 }
 //Convert-to-string
-Webcam::operator string()
+Webcam::operator string() const
 {
 	string str;
 	string webcamType = "Wired";

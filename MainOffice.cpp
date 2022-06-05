@@ -14,7 +14,7 @@ MainOffice::~MainOffice() //Destructor - also frees memory of allocated branches
 }
 
 //Getter
-std::map<string, Branch*> MainOffice::getBranches() const
+const std::map<string, Branch*>& MainOffice::getBranches() const
 {
 	return branches;
 }

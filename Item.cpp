@@ -48,7 +48,7 @@ void Item::setTotalItems(const int number)
 	totalItems = number;
 }
 
-Item::operator string()
+Item::operator string() const
 {
 	string str;
 	str = "id " + std::to_string(this->itemID) + ": " + manufacturerName + " " + std::to_string(this->price) + "$";

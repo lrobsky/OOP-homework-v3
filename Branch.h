@@ -16,11 +16,9 @@ private:
 	const int id;
 };
 
-
 class Branch
 {
-
-	std::vector<Item*> catalog;
+	std::vector<Item*> catalog; // vector that holds a pointer to all the items in the branch
 	const int capacity;
 	string location;
 
@@ -46,10 +44,12 @@ public:
 	void addItem(Item* product);
 	//remove item with given id, if item is not in branch's catalog we throw an exception.
 	Item* deleteItem(int id);
+	//
+	int branchValue() const; // return the total cost of all the items in the branch
+	void print_catalog_by_id(); // print all the items in the branch, sorted by their id.
+	void print_catalog_by_price();// print all the items in the branch, sorted by their price.
 
-	int branchValue() const;
-	void print_catalog_by_id();
-	void print_catalog_by_price();
+	//return a pointer from 
 
 	template<class T>
 	T* retrieveFinest(T* ptr) const

@@ -2,20 +2,7 @@
 #define HWEXCEPTIONS_H
 #include <exception>
 
-struct ExistingBranchError : std::exception
-{
-	const char* what() const
-	{
-		return "Trying to add a branch with an already existing location";
-	}
-};
-struct NonExistingBranchError : std::exception
-{
-	const char* what() const
-	{
-		return "Trying to delete a branch with an non existing location";
-	}
-};
+
 struct ExistingItemError : std::exception
 {
 	const char* what() const

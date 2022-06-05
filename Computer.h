@@ -23,7 +23,7 @@ public:
 	void setCpu(const string name);
 	void getIsLaptop(const bool isLaptop);
 	//Convert-to-string
-	virtual operator string();
+	virtual operator string() const;
 
 	bool connectPeripheral(Item* device);
 	void disconnectPeripheral(Item* device);

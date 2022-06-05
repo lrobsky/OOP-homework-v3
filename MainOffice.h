@@ -1,10 +1,23 @@
 #ifndef MAINOFFICE_H
 #define MAINOFFICE_H
-
 #include "Branch.h"
 #include <map>
 #include "HWExceptions.h"
 
+struct ExistingBranchError : std::exception
+{
+	const char* what() const
+	{
+		return "Trying to add a branch with an already existing location";
+	}
+};
+struct NonExistingBranchError : std::exception
+{
+	const char* what() const
+	{
+		return "Trying to delete a branch with an non existing location";
+	}
+};
 
 class MainOffice
 {
@@ -18,7 +31,7 @@ class MainOffice
 
 public:
 	
-	std::map<string, Branch*> getBranches() const;
+	const std::map<string, Branch*>& getBranches() const ;
 	void addBranch(string location, int capacity);
 	void deleteBranch(string location);
 	void printByLocation() const;

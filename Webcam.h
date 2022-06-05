@@ -14,7 +14,7 @@ public:
 	//Setter
 	void setResolution(const string& resolution);
 	//Convert-to-string
-	virtual operator string();
+	virtual operator string() const;
 
 	virtual void connect(Computer* comp);
 
