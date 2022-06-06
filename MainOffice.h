@@ -26,15 +26,15 @@ class MainOffice
 	MainOffice(MainOffice& other);
 	MainOffice(const MainOffice& other);
 	~MainOffice();
-	MainOffice& operator=(MainOffice& other); 
-	MainOffice& operator=(const MainOffice& other);
+	MainOffice& operator=(MainOffice& other)=delete; 
+
 
 public:
 	
 	const std::map<string, Branch*>& getBranches() const ;
 	void addBranch(string location, int capacity);
 	void deleteBranch(string location);
-	void printByLocation() const;
+	void printByLocation() ;
 	static MainOffice& getInstance(); //get singleton
 
 };

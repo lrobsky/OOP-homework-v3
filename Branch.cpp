@@ -1,21 +1,14 @@
 #include "Branch.h"
 
-bool idSort(Item* first, Item* second)
-{
-	return first->getId() < second->getId();
-}
-bool priceSort(Item* first, Item* second)
-{
-	return first->getPrice() < second->getPrice();
-}
-
-
 //Constructors
-Branch::Branch(const string& location="~", int capacity = 0) : location(location), capacity(capacity)
+Branch::Branch(const string& location="~", int capacity = 0)
+: location(location), capacity(capacity), sortType(NOT_SORTED)
 {
 	catalog.reserve(capacity);
 }
-Branch::Branch(Branch& otherBranch) : capacity(otherBranch.capacity), location(otherBranch.location) //Copy constructor
+//Copy constructor
+Branch::Branch(Branch& otherBranch)
+: capacity(otherBranch.capacity), location(otherBranch.location), sortType(NOT_SORTED) 
 {
 	catalog.reserve(capacity);
 }
@@ -26,7 +19,7 @@ Branch::~Branch()
 	std::vector<Item*>::iterator it;
 	for (it = catalog.begin(); it != catalog.end(); ++it)
 	{
-		delete *it; // free dynamic memory
+		delete *it; // free dynamic allocated memory
 	}
 }
 
@@ -53,7 +46,6 @@ void Branch::setLocation(const string& location)
 
 
 
-
 //Add new item to array, if array is full we remove the oldest item in the store.
 void Branch::addItem(Item* product)
 {
@@ -69,8 +61,8 @@ void Branch::addItem(Item* product)
 		{
 			throw ExistingItemError();
 		}
-		//catalog.insert(catalog.begin(), product); // insert product at beginning of vector
-		catalog.push_back(product);  
+		catalog.push_back(product);// insert Item to vector
+		sortType = NOT_SORTED;
 	}
 }
 
@@ -79,7 +71,7 @@ Item* Branch::deleteItem(int id)
 	std::vector<Item*>::iterator it;
 	Item* temp;
 	it = find_if(catalog.begin(), catalog.end(), idMatch(id));	
-	if (it == catalog.end())//item with inserted id is not in catalog
+	if (it == catalog.end()) //item with inserted id is not in catalog
 	{
 		throw NonExistingItemError();
 	}
@@ -116,29 +108,20 @@ void Branch::print() const
 // Print all the items in the branch, sorted by their id.
 void Branch::print_catalog_by_id() 
 {
-	//std::vector<Item*>::iterator it;
-	std::stable_sort(catalog.begin(), catalog.end(), idSort);
-	this->print();
-	/*std::cout << "Printing KSF branch in " << location << std::endl;
-	std::cout << "There are " << catalog.size() <<" item in the catalog" << std::endl;
-	std::cout << "Catalog value is: " << this->branchValue() <<  std::endl;
-	for (it = catalog.begin(); it != catalog.end(); ++it)
+	if (sortType != ID_SORTED) // if catalog is already sorted by id, no need to sort again
 	{
-		std::cout << string(*(*it)) << std::endl;
-	}*/
+		std::stable_sort(catalog.begin(), catalog.end(), idSort());
+		sortType = ID_SORTED;
+	}
+	this->print();
 }
-
+// Print all the items in the branch, sorted by their price.
 void Branch::print_catalog_by_price()  
-// Code duplication - can export to new function-add enum type
 {
-	/*std::vector<Item*>::iterator it;*/
-	std::stable_sort(catalog.begin(), catalog.end(), priceSort);
-	this->print();
-	/*std::cout << "Printing KSF branch in " << location << std::endl;
-	std::cout << "There are " << catalog.size() << " item in the catalog" << std::endl;
-	std::cout << "Catalog value is: " << this->branchValue() << std::endl;
-	for (it = catalog.begin(); it != catalog.end(); ++it)
+	if (sortType != PRICE_SORTED) // if catalog is already sorted by price, no need to sort again
 	{
-		std::cout << string(*(*it)) << std::endl;
-	}*/
+		std::stable_sort(catalog.begin(), catalog.end(), priceSort());
+		sortType = PRICE_SORTED;
+	}
+	this->print();
 }

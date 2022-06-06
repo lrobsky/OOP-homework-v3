@@ -1,7 +1,6 @@
 #include "MainOffice.h"
 MainOffice::MainOffice()
 {
-
 }
 
 MainOffice::~MainOffice() //Destructor - also frees memory of allocated branches
@@ -51,7 +50,7 @@ void MainOffice::deleteBranch(string location)
 }
 //iterate through map container, and print every item in each branch by its id.
 //Because our key is the location,the map is already sorted.
-void MainOffice::printByLocation() const
+void MainOffice::printByLocation() 
 {
 	for (auto& Branch : branches)
 	{

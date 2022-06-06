@@ -3,6 +3,7 @@
 #include "Item.h"
 #include <vector>
 #include <algorithm>
+enum SortedType {NOT_SORTED,ID_SORTED,PRICE_SORTED};
 struct idMatch
 {
 	idMatch(int id) : id(id) {}
@@ -13,12 +14,28 @@ struct idMatch
 private:
 	const int id;
 };
+struct idSort
+{
+	bool operator() (const Item* first, const Item* second)
+	{
+		return first->getId() < second->getId();
+	}
+}; 
+
+struct priceSort
+{
+	bool operator() (const Item* first, const Item* second)
+	{
+		return first->getPrice() < second->getPrice();
+	}
+};
 
 class Branch
 {
 	std::vector<Item*> catalog; // vector that holds a pointer to all the items in the branch
 	const int capacity;
 	string location;
+	SortedType sortType; //indicates if the branch is sorted or not
 
 public:
 
@@ -42,7 +59,8 @@ public:
 	void addItem(Item* product);
 	//Remove item with given id, if item is not in branch's catalog we throw an exception.
 	Item* deleteItem(int id);
-	//
+	
+
 	int branchValue() const; // Return the total cost of all the items in the branch
 	void print() const; // print all items in the catalog by order
 	void print_catalog_by_id();	 // Sort catalog by their id, the call print function	
