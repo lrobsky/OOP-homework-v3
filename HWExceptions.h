@@ -31,7 +31,7 @@ struct NoneExistingItemTypeError : std::exception
 {
 	const char* what() const
 	{
-		return "Trying to get an item with a non existing type:";
+		return "Trying to get an item with a non existing type";
 	}
 };
 
