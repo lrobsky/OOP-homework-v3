@@ -8,12 +8,12 @@ MainOffice::~MainOffice() //Destructor - also frees memory of allocated branches
 	std::cout << "MainOffice destructor" << std::endl;
 	for (auto& Branch : branches)
 	{
-		delete Branch.second;
+		delete &Branch.second;
 	}
 }
 
 //Getter
-const std::map<string, Branch*>& MainOffice::getBranches() const
+std::map<string, Branch>& MainOffice::getBranches() 
 {
 	return branches;
 }
@@ -21,12 +21,13 @@ const std::map<string, Branch*>& MainOffice::getBranches() const
 //if MainOffice already has a branch with the same location, throw error.
 void MainOffice::addBranch(string location, int capacity)
 {
-	std::map<string, Branch*>::iterator it;
+	std::map<string, Branch>::iterator it;
 	it = branches.find(location);
-	if (it != branches.end()) // key is not in map
+	if (it == branches.end()) // key is not in map
 	{
-		Branch* b1 = new Branch(location, capacity);
-		branches[location] = b1;
+		branches.emplace(std::pair<string, Branch>(location,Branch(location, capacity)));
+		/*branches.insert(make_pair(location,Branch(location, capacity)));*/
+			
 	}
 	else // key already in map
 	{
@@ -37,7 +38,7 @@ void MainOffice::addBranch(string location, int capacity)
 //If branch with inserted location does not exist, throw error.
 void MainOffice::deleteBranch(string location)
 {
-	std::map<string, Branch*>::iterator it;
+	std::map<string, Branch>::iterator it;
 	it = branches.find(location);
 	if (it == branches.end()) // branch is not in map
 	{
@@ -52,9 +53,10 @@ void MainOffice::deleteBranch(string location)
 //Because our key is the location,the map is already sorted.
 void MainOffice::printByLocation() 
 {
+	std::cout << "There are " << branches.size() << " KSP branches" << std::endl;
 	for (auto& Branch : branches)
 	{
-		Branch.second->print_catalog_by_id();
+		Branch.second.print_catalog_by_id();
 	}
 }
 

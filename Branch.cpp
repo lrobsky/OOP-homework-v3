@@ -1,13 +1,17 @@
 #include "Branch.h"
 
 //Constructors
-Branch::Branch(const string& location="~", int capacity = 0)
+Branch::Branch():capacity(0),sortType(NOT_SORTED)
+{
+
+}
+Branch::Branch(const string& location = "~", int capacity = 0)
 : location(location), capacity(capacity), sortType(NOT_SORTED)
 {
 	catalog.reserve(capacity);
 }
 //Copy constructor
-Branch::Branch(Branch& otherBranch)
+Branch::Branch(const Branch& otherBranch)
 : capacity(otherBranch.capacity), location(otherBranch.location), sortType(NOT_SORTED) 
 {
 	catalog.reserve(capacity);

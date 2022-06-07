@@ -40,9 +40,9 @@ class Branch
 public:
 
 	//Constructors
-
+	Branch();
 	Branch(const string& location, int capacity);
-	Branch(Branch& other);
+	Branch(const Branch& other);
 
 	//Destructor
 	~Branch();

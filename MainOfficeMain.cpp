@@ -9,6 +9,7 @@
 
 int main()
 {
+	freopen("output_mainOffice.txt", "w", stdout);
 	Item* items[TEST_MAIN_SIZE]; //the array is only here for code organization
 	items[0] = new Computer(60, "Dell", "Intel", true, 3);
 	items[0]->setPrice(70);
